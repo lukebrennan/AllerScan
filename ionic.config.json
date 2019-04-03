@@ -1,5 +1,7 @@
 {
   "name": "AllerScan",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
