@@ -8,7 +8,8 @@ const routes: Routes = [
         component: TabsPage,
         children: [    
         { path: 'feed', loadChildren: '../feed/feed.module#FeedPageModule' },
-        { path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule'}
+        { path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule'},
+        { path: 'scan', loadChildren: '../scan/scan.module#ScanPageModule'}
     ]
     }
 

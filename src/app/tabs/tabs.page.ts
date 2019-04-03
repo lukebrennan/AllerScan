@@ -13,7 +13,7 @@ export class TabsPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.tabs.select('feed')
+    this.tabs.select('scan')
   }
 
 }

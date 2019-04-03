@@ -1,14 +1,20 @@
-<ion-tabs #tabs> 
+
+<ion-tabs selectedIndex="2" #tabs> 
   <ion-tab-bar slot="bottom">
 
       <ion-tab-button tab="feed">
-        <ion-icon name="send"></ion-icon>
+        <ion-icon name="clipboard"></ion-icon>
         <ion-label>Feed</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="profile">
-          <ion-icon name="send"></ion-icon>
-          <ion-label>Test</ion-label>
+      <ion-tab-button tab="scan">
+          <ion-icon name="camera"></ion-icon>
+          <ion-label>Scan</ion-label>
+        </ion-tab-button>
+
+              <ion-tab-button tab="profile">
+          <ion-icon name="bulb"></ion-icon>
+          <ion-label>Profile</ion-label>
         </ion-tab-button>
 
 </ion-tab-bar>

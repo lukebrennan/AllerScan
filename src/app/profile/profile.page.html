@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Profile</ion-title>
+    <ion-title>Profile Page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Here you can toggle your allergy preferences</ion-card-subtitle>
+          <ion-card-title>Your Allergies</ion-card-title>
+        </ion-card-header>
+
+      </ion-card>
+
+      <ion-card>
+          <ion-list>
+              
+              <ion-item>
+                <ion-label>Dairy</ion-label>
+                <ion-toggle color="danger" slot="end"></ion-toggle>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Nuts</ion-label>
+                  <ion-toggle color="danger" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Gluten</ion-label>
+                    <ion-toggle color="danger" slot="end"></ion-toggle>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Eggs</ion-label>
+                      <ion-toggle color="danger" slot="end"></ion-toggle>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Soy</ion-label>
+                        <ion-toggle color="danger" slot="end"></ion-toggle>
+                      </ion-item>
+
+              
+            </ion-list>
+      </ion-card>
 
 </ion-content>
