@@ -1,0 +1,22 @@
+<ion-header>
+  
+    <ion-toolbar>
+        <ion-title>Scanner</ion-title>
+      <ion-buttons slot="start">
+        
+        <ion-back-button defaultHref="/tabs"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content padding>
+
+    <div *ngIf="results">
+      <p>{{results.text}}</p>
+
+
+    </div>
+ 
+      <ion-button (click)="scanBarcode()">Scan Code</ion-button>
+   
+  </ion-content>

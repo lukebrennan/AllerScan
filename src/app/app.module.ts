@@ -14,6 +14,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
 import { UserService } from './user.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
 
 
 @NgModule({
@@ -30,8 +32,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
     AngularFirestore,
     StatusBar,
     SplashScreen,
+    BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    UserService
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

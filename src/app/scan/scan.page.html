@@ -19,10 +19,16 @@
       </ion-card>
       
 
-
   <div class="center">
-  <ion-button class="roundButton" size="large" color="secondary"><ion-icon name="barcode"></ion-icon>&nbsp;Scan</ion-button>
+  <ion-button (click)="scanBarcode()" class="roundButton" size="large" color="secondary"><ion-icon name="barcode"></ion-icon>&nbsp;Scan</ion-button>
   </div>
 
+  <ion-card *ngIf="results">
+      <ion-card-header>
+        <ion-card-subtitle>Scan Results</ion-card-subtitle>
+        <ion-card-content><p>{{results.text}}</p><p>{{results.format}}</p></ion-card-content>
+      </ion-card-header>
+    
+    </ion-card>
 
 </ion-content>
