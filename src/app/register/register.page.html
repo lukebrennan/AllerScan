@@ -27,6 +27,33 @@
     <ion-input type="password" [(ngModel)]="cpassword"></ion-input>
   </ion-item>
 
+             <ion-card>
+                <ion-card-header>
+                    <ion-card-subtitle>Please specify your allergy requirements:</ion-card-subtitle>
+                  </ion-card-header>
+      <ion-item>
+        <ion-label>Eggs</ion-label>
+        <ion-toggle [(ngModel)]="eggAllergy" color="danger" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+          <ion-label>Shellfish</ion-label>
+          <ion-toggle [(ngModel)]="shellfishAllergy" color="danger" slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Dairy</ion-label>
+            <ion-toggle [(ngModel)]="dairyAllergy" color="danger" slot="end"></ion-toggle>
+          </ion-item>
+          <ion-item>
+              <ion-label>Nuts & Peanuts</ion-label>
+              <ion-toggle [(ngModel)]="nutAllergy" color="danger" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Gluten</ion-label>
+                <ion-toggle [(ngModel)]="glutenAllergy" color="danger" slot="end"></ion-toggle>
+              </ion-item>
+            </ion-card> 
+      
+
 </ion-list>
 
 <ion-button fill="solid" expand="block" color="secondary" (click)="register()">Sign Up</ion-button>

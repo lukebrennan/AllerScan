@@ -4,7 +4,7 @@ import { auth } from 'firebase/app';
 
 import { AngularFirestore } from '@angular/fire/firestore'
 
-import { AlertController}  from '@ionic/angular'
+import { AlertController, BooleanValueAccessor}  from '@ionic/angular'
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
@@ -18,6 +18,12 @@ export class RegisterPage implements OnInit {
   email: string = ""
   password: string = ""
   cpassword: string = ""
+  eggAllergy: boolean = false
+  shellfishAllergy: boolean = false
+  dairyAllergy: boolean = false
+  nutAllergy: boolean = false
+  glutenAllergy: boolean = false
+
 
   constructor(public afAuth: AngularFireAuth, public alert: AlertController, public afstore: AngularFirestore, public user: UserService, public router: Router) { }
 
@@ -25,7 +31,7 @@ export class RegisterPage implements OnInit {
   }
 
   async register(){
-    const {email, password, cpassword } = this
+    const {email, password, cpassword, eggAllergy, shellfishAllergy, dairyAllergy, nutAllergy, glutenAllergy} = this
     if(password !== cpassword)
     {
       this.showAlert("Error", "Passwords must match")
@@ -36,7 +42,12 @@ export class RegisterPage implements OnInit {
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
   
       this.afstore.doc(`users/${res.user.uid}`).set({
-        email
+        email,
+        eggAllergy,
+        shellfishAllergy,
+        dairyAllergy,
+        nutAllergy,
+        glutenAllergy
       })
 
       this.user.setUser({

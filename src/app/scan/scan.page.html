@@ -1,34 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Scan</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-    <ion-card>
+    <ion-toolbar>
+      <ion-title>Scan</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+      <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Home - Scan</ion-card-subtitle>
+            <ion-card-title>Scan</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            In this page we will provide the user with a floating action button, which will
+            redirect them to a page containing the ability to scan a barcode
+          </ion-card-content>
+        </ion-card>
+        
+  
+    <div class="center">
+    <ion-button (click)="scanBarcode()" class="roundButton" size="large" color="secondary"><ion-icon name="barcode"></ion-icon>&nbsp;Scan</ion-button>
+    </div>
+  
+    <ion-card *ngIf="results">
         <ion-card-header>
-          <ion-card-subtitle>Home - Scan</ion-card-subtitle>
-          <ion-card-title>Scan</ion-card-title>
+          <ion-card-subtitle>Scan Results</ion-card-subtitle>
+          <ion-card-content><p>{{results.text}}</p><p>{{results.format}}</p></ion-card-content>
         </ion-card-header>
       
-        <ion-card-content>
-          In this page we will provide the user with a floating action button, which will
-          redirect them to a page containing the ability to scan a barcode
-        </ion-card-content>
       </ion-card>
-      
-
-  <div class="center">
-  <ion-button (click)="scanBarcode()" class="roundButton" size="large" color="secondary"><ion-icon name="barcode"></ion-icon>&nbsp;Scan</ion-button>
-  </div>
-
-  <ion-card *ngIf="results">
-      <ion-card-header>
-        <ion-card-subtitle>Scan Results</ion-card-subtitle>
-        <ion-card-content><p>{{results.text}}</p><p>{{results.format}}</p></ion-card-content>
-      </ion-card-header>
-    
-    </ion-card>
-
-</ion-content>
+  
+  </ion-content>
+  

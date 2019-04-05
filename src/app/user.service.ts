@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 
 interface user{
     email: string,
-    uid: string
+    uid: string,
 }
 
 @Injectable()
