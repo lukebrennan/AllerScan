@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import {BarcodeScanner, BarcodeScannerOptions} from '@ionic-native/barcode-scanner/ngx'
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-scan',
@@ -13,9 +14,7 @@ export class ScanPage implements OnInit {
   options: BarcodeScannerOptions;
   results: {};
  
-  constructor(private barcode : BarcodeScanner, public navCtrl : NavController){
-    
-  }
+  constructor(private barcode : BarcodeScanner, public navCtrl : NavController, public router: Router){}
  
    async scanBarcode(){
 
@@ -25,10 +24,17 @@ export class ScanPage implements OnInit {
     }
 
      this.results = await this.barcode.scan(this.options);
-     console.log(this.results);
-     return this.results;
+     this.findBarcode(this.results);
    }
  
+   async findBarcode(results){
+
+    console.log(this.results);
+    this.router.navigate(['/item', results])
+
+
+
+   }
  
    ngOnInit() {
    }
