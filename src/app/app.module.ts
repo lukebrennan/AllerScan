@@ -14,7 +14,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
 import { UserService } from './user.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+import { SQLite } from '@ionic-native/sqlite/ngx';
+import { IonicStorageModule } from '@ionic/storage'
+
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
+import { DBStorage } from "../services/dbstorage.service";
 
 
 
@@ -26,15 +31,18 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     AngularFirestore,
     StatusBar,
+    SQLite,
     SplashScreen,
     BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
+    DBStorage
   ],
   bootstrap: [AppComponent]
 })

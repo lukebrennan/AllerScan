@@ -1,9 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>product</ion-title>
+    <ion-title>{{dataObj.text}}</ion-title>
+    <ion-buttons slot="start">
+
+        <ion-back-button defaultHref="/tabs"></ion-back-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+    <ion-card *ngIf="dataObj">
+        <ion-card-header>
+          <ion-card-subtitle>Scan Results</ion-card-subtitle>
+          <ion-card-content><p>{{dataObj.text}}</p><p>{{dataObj.format}}</p></ion-card-content>
+        </ion-card-header>
+      
+      </ion-card>
 
 </ion-content>

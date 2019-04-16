@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'scan', loadChildren: './scan/scan.module#ScanPageModule' },
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
   { path: 'scanner', loadChildren: './scanner/scanner.module#ScannerPageModule' },
-  { path: 'product', loadChildren: './product/product.module#ProductPageModule' },
+  { path: 'product/:dataObj', loadChildren: './product/product.module#ProductPageModule' },
   { path: 'add-product', loadChildren: './add-product/add-product.module#AddProductPageModule' }
 ];
 

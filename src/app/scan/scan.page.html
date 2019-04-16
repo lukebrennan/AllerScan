@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-      <ion-title>Scan</ion-title>
+      <ion-title>Scan Product</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -23,15 +23,16 @@
     <ion-button (click)="scanBarcode()" class="roundButton" size="large" color="secondary"><ion-icon name="barcode"></ion-icon>&nbsp;Scan</ion-button>
     </div>
   
-    <ion-card *ngIf="results">
-        <ion-card-header>
-          <ion-card-subtitle>Scan Results</ion-card-subtitle>
-          <ion-card-content><p>{{results.text}}</p><p>{{results.format}}</p></ion-card-content>
-        </ion-card-header>
-      
-      </ion-card>
-
-      <ion-button fill="solid" expand="block" color="primary" (click)="register()" href="/add-product/">Add Product</ion-button>
+      <ion-button fill="solid" expand="block" color="primary" href="/add-product/">Add Product</ion-button>
+      <ion-button fill="solid" expand="block" color="primary" (click)="testClick()">Test</ion-button>
   
+      <ion-card *ngIf="results">
+          <ion-card-header>
+            <ion-card-subtitle>Scan Results</ion-card-subtitle>
+            <ion-card-content><p>{{results.text}}</p><p>{{results.format}}</p></ion-card-content>
+          </ion-card-header>
+        
+        </ion-card>
+
   </ion-content>
   

@@ -16,6 +16,12 @@ export class ScanPage implements OnInit {
  
   constructor(private barcode : BarcodeScanner, public navCtrl : NavController, public router: Router){}
  
+  async testClick(){
+
+    this.results = 1;
+    this.router.navigate(['product', this.results]);
+  }
+
    async scanBarcode(){
 
     this.options = {
@@ -24,18 +30,11 @@ export class ScanPage implements OnInit {
     }
 
      this.results = await this.barcode.scan(this.options);
-     this.findBarcode(this.results);
+     let dataObj = JSON.stringify(this.results);
+     console.log('scan.page.ts', typeof(this.results))
+     this.router.navigate(['product', dataObj]);
    }
- 
-   async findBarcode(results){
-
-    console.log(this.results);
-    this.router.navigate(['/item', results])
-
-
-
-   }
- 
+  
    ngOnInit() {
    }
 
