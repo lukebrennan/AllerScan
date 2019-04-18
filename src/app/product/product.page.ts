@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, AlertController} from '@ionic/angular';
-import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { database } from 'firebase';
+import { query } from '@angular/core/src/render3';
+
 
 @Component({
   selector: 'app-product',
@@ -18,8 +21,7 @@ export class ProductPage implements OnInit {
   barcode : String;
   returnedQuery: any;
   
-
-  constructor(public route: ActivatedRoute, public navCtrl: NavController, private database: AngularFirestore, private fire: AngularFireAuth, private alertCtrl: AlertController) {}
+  constructor(public route: ActivatedRoute, public navCtrl: NavController, private afs: AngularFirestore, private fire: AngularFireAuth, private alertCtrl: AlertController, private user: UserService) {}
    
 
   ngOnInit() {
@@ -27,21 +29,20 @@ export class ProductPage implements OnInit {
     this.loadData()
   }
 
-  async query(barcode: String){
+  async query(barcode){
 
-
+    this.returnedQuery = this.afs.collection('products').doc(barcode).valueChanges().subscribe(val => console.log(val));
+    
   }
 
   async loadData(){
     let passedProduct = this.route.snapshot.paramMap.get('dataObj');
     this.dataObj = JSON.parse(passedProduct);
 
-    console.log(this.dataObj.text);
-
     let barcode = this.dataObj.text;
 
-    this.returnedQuery = this.query(barcode);
-    console.log(this.barcode);
+    this.returnedQuery = this.afs.collection('products').doc(barcode).valueChanges().subscribe(val => this.returnedQuery = val);
+    console.log(this.returnedQuery);
 
 
   }

@@ -41,7 +41,7 @@
     "core-js": "^2.5.4",
     "firebase": "^5.9.2",
     "phonegap-plugin-barcodescanner": "8.0.1",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.4.0",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
