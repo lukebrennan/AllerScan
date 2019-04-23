@@ -19,27 +19,35 @@
               
               <ion-item>
                 <ion-label>Eggs</ion-label>
-                <ion-toggle color="danger" slot="end"></ion-toggle>
+                <ion-toggle [(ngModel)]="userPrefs.eggAllergy" (ngModelChange)="updatePreferences('egg')" color="danger" slot="end"></ion-toggle>
               </ion-item>
               <ion-item>
                   <ion-label>Shellfish</ion-label>
-                  <ion-toggle color="danger" slot="end"></ion-toggle>
+                  <ion-toggle [(ngModel)]="userPrefs.shellfishAllergy" (ngModelChange)="updatePreferences('shellfish')" color="danger" slot="end"></ion-toggle>
                 </ion-item>
                 <ion-item>
                     <ion-label>Dairy</ion-label>
-                    <ion-toggle color="danger" slot="end"></ion-toggle>
+                    <ion-toggle [(ngModel)]="userPrefs.dairyAllergy" (ngModelChange)="updatePreferences('dairy')" color="danger" slot="end"></ion-toggle>
                   </ion-item>
                   <ion-item>
                       <ion-label>Nuts & Peanuts</ion-label>
-                      <ion-toggle color="danger" slot="end"></ion-toggle>
+                      <ion-toggle [(ngModel)]="userPrefs.nutAllergy" (ngModelChange)="updatePreferences('nut')" color="danger" slot="end"></ion-toggle>
                     </ion-item>
                     <ion-item>
-                        <ion-label>Soy</ion-label>
-                        <ion-toggle color="danger" slot="end"></ion-toggle>
+                        <ion-label>Gluten</ion-label>
+                        <ion-toggle [(ngModel)]="userPrefs.glutenAllergy" (ngModelChange)="updatePreferences('gluten')" color="danger" slot="end"></ion-toggle>
                       </ion-item>
 
               
             </ion-list>
       </ion-card>
+
+      <ion-card *ngIf="userPrefs">
+          <ion-card-header>
+            <ion-card-subtitle>Scan Results</ion-card-subtitle>
+            <ion-card-content><p>{{userPrefs.email}}</p></ion-card-content>
+          </ion-card-header>
+        
+        </ion-card>
 
 </ion-content>
