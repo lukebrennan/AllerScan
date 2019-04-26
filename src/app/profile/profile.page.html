@@ -38,16 +38,9 @@
                         <ion-toggle [(ngModel)]="userPrefs.glutenAllergy" (ngModelChange)="updatePreferences('gluten')" color="danger" slot="end"></ion-toggle>
                       </ion-item>
 
-              
             </ion-list>
       </ion-card>
 
-      <ion-card *ngIf="userPrefs">
-          <ion-card-header>
-            <ion-card-subtitle>Scan Results</ion-card-subtitle>
-            <ion-card-content><p>{{userPrefs.email}}</p></ion-card-content>
-          </ion-card-header>
-        
-        </ion-card>
+
 
 </ion-content>

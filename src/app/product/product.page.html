@@ -1,22 +1,95 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Product</ion-title>
-    <ion-buttons slot="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Product</ion-title>
+        <ion-buttons slot="start">
 
-        <ion-back-button defaultHref="/tabs"></ion-back-button>
-      </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+          <ion-back-button defaultHref="/tabs"></ion-back-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
-<ion-content>
+    <ion-content>
 
-    <ion-card *ngIf="returnedQuery">
+      <ion-card *ngIf="productSafe == true">
         <ion-card-header>
-          <ion-card-subtitle>Scan Results</ion-card-subtitle>
-          <ion-card-content><p>{{returnedQuery.productName}}</p></ion-card-content>
-          <ion-card-content><p>{{returnedQuery.productCode}}</p></ion-card-content>
+          <ion-button color="success">
+            <ion-icon name="alert"></ion-icon> SAFE
+          </ion-button>
         </ion-card-header>
-      
+
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+
       </ion-card>
 
-</ion-content>
+      <ion-card *ngIf="productSafe == false">
+          <ion-card-header>
+              <ion-button color="danger">
+                  <ion-icon name="alert"></ion-icon> NOT SAFE
+              </ion-button>
+            </ion-card-header>
+    
+            <ion-card-content>
+              Keep close to Nature's heart... and break clear away, once in awhile,
+              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            </ion-card-content>
+
+      </ion-card>
+
+      <ion-card *ngIf="productInfo">
+        <ion-card-header>
+          <ion-card-subtitle>Scan Results</ion-card-subtitle>
+          <ion-card-content>
+            <p>Name: {{productInfo.productName}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Code: {{productInfo.productCode}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Dairy Allergy: {{productInfo.dairyAllergy}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Egg Allergy: {{productInfo.eggAllergy}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Gluten Allergy: {{productInfo.glutenAllergy}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Nut Allergy: {{productInfo.nutAllergy}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Shellfish Allergy: {{productInfo.shellfishAllergy}}</p>
+          </ion-card-content>
+
+        </ion-card-header>
+
+      </ion-card>
+
+      <ion-card *ngIf="userPrefs">
+        <ion-card-header>
+          <ion-card-subtitle>Scan Results</ion-card-subtitle>
+          <ion-card-content>
+            <p>Email: {{userPrefs.email}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Dairy: {{userPrefs.dairyAllergy}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Egg: {{userPrefs.eggAllergy}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Gluten: {{userPrefs.glutenAllergy}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Nut: {{userPrefs.nutAllergy}}</p>
+          </ion-card-content>
+          <ion-card-content>
+            <p>Shellfish: {{userPrefs.shellfishAllergy}}</p>
+          </ion-card-content>
+        </ion-card-header>
+      </ion-card>
+
+
+    </ion-content>
