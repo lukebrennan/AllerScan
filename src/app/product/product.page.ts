@@ -70,15 +70,8 @@ else{
 
               }
 
-              if(this.productSafe == true)
-              {
                 this.addToLog(this.productSafe, this.productResults);
-              }
-              else if(this.productSafe == false)
-              {
-                this.addToLog(this.productSafe, this.productResults);
-              }
-
+            
       });
     }
   });

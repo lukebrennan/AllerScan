@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { AlertController, BooleanValueAccessor}  from '@ionic/angular'
 
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginPage implements OnInit {
 
   email: string = ""
   password: string = ""
-  constructor(public afAuth: AngularFireAuth, public user: UserService, public router: Router) { }
+  constructor(public alert: AlertController, public afAuth: AngularFireAuth, public user: UserService, public router: Router) { }
 
   ngOnInit() {
   }
@@ -36,10 +37,19 @@ export class LoginPage implements OnInit {
       console.dir(err)
       if(err.code == "auth/user-not-found")
       {
-        console.log("User not found")
+        this.showAlert("Error", "User Not Found")
       }
     }
 
   }
+
+  async showAlert(header: string, message: string){
+    const alert = await this.alert.create({
+      header,
+      message,
+      buttons: ["Okay"]
+    })
+
+}
 
 }
