@@ -1,6 +1,6 @@
     <ion-header>
       <ion-toolbar>
-        <ion-title>Product</ion-title>
+        <ion-title>{{productInfo.productName}}</ion-title>
         <ion-buttons slot="start">
 
           <ion-back-button defaultHref="/tabs"></ion-back-button>
@@ -12,84 +12,80 @@
 
       <ion-card *ngIf="productSafe == true">
         <ion-card-header>
-          <ion-button color="success">
+          <ion-button size="large" fill="solid" expand="block" color="success">
             <ion-icon name="alert"></ion-icon> SAFE
           </ion-button>
         </ion-card-header>
-
         <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            <ion-text>
+              <h1>{{productInfo.productName}}</h1>
+                <h2>This product is <ion-text color="success"><b>SAFE</b></ion-text>  for consumption according to your allergy preferences</h2>
+              </ion-text>
         </ion-card-content>
 
       </ion-card>
 
       <ion-card *ngIf="productSafe == false">
           <ion-card-header>
-              <ion-button color="danger">
+              <ion-button size="large" fill="solid" expand="block" color="danger">
                   <ion-icon name="alert"></ion-icon> NOT SAFE
               </ion-button>
             </ion-card-header>
-    
             <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                <ion-text>
+                  <h1>{{productInfo.productName}}</h1>
+                    <h2>This product is <ion-text color="danger"><b>NOT</b></ion-text> safe for consumption according to your allergy preferences</h2>
+                  </ion-text>
             </ion-card-content>
 
       </ion-card>
 
-      <ion-card *ngIf="productInfo">
-        <ion-card-header>
-          <ion-card-subtitle>Scan Results</ion-card-subtitle>
-          <ion-card-content>
-            <p>Name: {{productInfo.productName}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Code: {{productInfo.productCode}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Dairy Allergy: {{productInfo.dairyAllergy}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Egg Allergy: {{productInfo.eggAllergy}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Gluten Allergy: {{productInfo.glutenAllergy}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Nut Allergy: {{productInfo.nutAllergy}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Shellfish Allergy: {{productInfo.shellfishAllergy}}</p>
-          </ion-card-content>
-
-        </ion-card-header>
-
-      </ion-card>
-
-      <ion-card *ngIf="userPrefs">
-        <ion-card-header>
-          <ion-card-subtitle>Scan Results</ion-card-subtitle>
-          <ion-card-content>
-            <p>Email: {{userPrefs.email}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Dairy: {{userPrefs.dairyAllergy}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Egg: {{userPrefs.eggAllergy}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Gluten: {{userPrefs.glutenAllergy}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Nut: {{userPrefs.nutAllergy}}</p>
-          </ion-card-content>
-          <ion-card-content>
-            <p>Shellfish: {{userPrefs.shellfishAllergy}}</p>
-          </ion-card-content>
-        </ion-card-header>
-      </ion-card>
+      <ion-card *ngIf="productInfo && productSafe == false">
+          <ion-card-header>
+            <ion-card-subtitle>This product contains:</ion-card-subtitle>
+  
+            <ion-card-content>
+  
+                <ion-list>
+                
+                    <ion-item *ngIf="productInfo.eggAllergy == true && userPrefs.eggAllergy == true">
+                      <ion-label>Eggs</ion-label>
+                      <ion-button color="danger" slot="end">
+                          <ion-icon name="alert"></ion-icon>
+                      </ion-button>
+                    </ion-item>
+                    <ion-item *ngIf="productInfo.dairyAllergy == true && userPrefs.dairyAllergy == true">
+                        <ion-label>Dairy</ion-label>
+                        <ion-button color="danger" slot="end">
+                            <ion-icon name="alert"></ion-icon>
+                        </ion-button>
+                      </ion-item>
+                      <ion-item *ngIf="productInfo.glutenAllergy == true && userPrefs.glutenAllergy == true" >
+                          <ion-label>Gluten</ion-label>
+                          <ion-button color="danger" slot="end">
+                              <ion-icon name="alert"></ion-icon>
+                          </ion-button>
+                        </ion-item>
+                        <ion-item *ngIf="productInfo.nutAllergy == true && userPrefs.nutAllergy == true">
+                            <ion-label>Nut</ion-label>
+                            <ion-button color="danger" slot="end">
+                                <ion-icon name="alert"></ion-icon>
+                            </ion-button>
+                          </ion-item>
+                          <ion-item *ngIf="productInfo.shellfishAllergy == true && userPrefs.shellfishAllergy == true">
+                              <ion-label>Shellfish</ion-label>
+                              <ion-button color="danger" slot="end">
+                                  <ion-icon name="alert"></ion-icon>
+                              </ion-button>
+                            </ion-item>
+  
+                  </ion-list>
+  
+            </ion-card-content>
+  
+          </ion-card-header>
+  
+        </ion-card>
 
 
     </ion-content>

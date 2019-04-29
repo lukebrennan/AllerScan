@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-      <ion-title>Scan Product</ion-title>
+      <ion-title>AllerScan</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -9,30 +9,23 @@
       <ion-card>
           <ion-card-header>
             <ion-card-subtitle>Home - Scan</ion-card-subtitle>
-            <ion-card-title>Scan</ion-card-title>
+            <ion-card-title>Welcome to AllerScan</ion-card-title>
           </ion-card-header>
-        
+
           <ion-card-content>
-            In this page we will provide the user with a floating action button, which will
-            redirect them to a page containing the ability to scan a barcode
+            <h2>Here you can scan a food item and find out if it is safe to eat by you, and your specific needs.</h2>
           </ion-card-content>
         </ion-card>
-        
-  
-    <div class="center">
-    <ion-button (click)="scanBarcode()" class="roundButton" size="large" color="secondary"><ion-icon name="barcode"></ion-icon>&nbsp;Scan</ion-button>
-    </div>
-  
-      <ion-button fill="solid" expand="block" color="primary" href="/add-product/">Add Product</ion-button>
-      <ion-button fill="solid" expand="block" color="primary" (click)="testClick()">Test</ion-button>
-  
-      <ion-card *ngIf="results">
-          <ion-card-header>
-            <ion-card-subtitle>Scan Results</ion-card-subtitle>
-            <ion-card-content><p>{{results.text}}</p><p>{{results.format}}</p></ion-card-content>
-          </ion-card-header>
-        
-        </ion-card>
-
+      
   </ion-content>
   
+  <ion-content>
+  <div class="center">
+      <ion-grid style="height: 100%">
+          <ion-row justify-content-center align-items-center style="height: 100%">
+              <ion-button (click)="scanBarcode()" class="roundButton" size="large" color="secondary"><ion-icon name="barcode"></ion-icon>&nbsp;Scan Item</ion-button>
+          </ion-row>
+        </ion-grid>
+  </div>
+</ion-content>
+

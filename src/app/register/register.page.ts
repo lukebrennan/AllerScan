@@ -50,6 +50,11 @@ export class RegisterPage implements OnInit {
         glutenAllergy
       })
 
+      this.afstore.doc(`logs/${res.user.uid}`).set({
+
+      })
+
+
       this.user.setUser({
         email,
         uid: res.user.uid

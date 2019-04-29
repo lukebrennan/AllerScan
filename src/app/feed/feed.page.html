@@ -11,36 +11,22 @@
     <ion-list-header>
         <ion-label>Recently Scanned Products</ion-label>
       </ion-list-header>
-    <ion-item>
-      <ion-label>Mars Bar</ion-label>
-      <ion-text color="danger">
-          <p>NOT SAFE</p>
-        </ion-text>
-    </ion-item>
-    <ion-item>
-      <ion-label>Red Bull</ion-label>
-      <ion-text color="success">
-          <p>SAFE</p>
-        </ion-text>
-    </ion-item>
-    <ion-item>
-      <ion-label>Galaxy Bar</ion-label>
-      <ion-text color="danger">
-          <p>NOT SAFE</p>
-        </ion-text>
-    </ion-item>
-    <ion-item>
-      <ion-label>Tayto Salt & Vinegar</ion-label>
-      <ion-text color="success">
-          <p>SAFE</p>
-        </ion-text>
-    </ion-item>
-    <ion-item>
-      <ion-label>Kinder Bueno</ion-label>
-      <ion-text color="danger">
-          <p>NOT SAFE</p>
-        </ion-text>
-    </ion-item>
+
+    <ion-item *ngFor="let log of logs">
+        <ion-label text-wrap>
+          <ion-text color="primary">
+            <h3>{{log.logName}}</h3>
+          </ion-text>
+          <p>{{log.logDate.toDate() | date:'medium'}}</p>
+          <ion-text *ngIf="log.logSafe == 'NOT SAFE'" color="danger">
+              <p><ion-icon name="close-circle-outline"></ion-icon> {{log.logSafe}}</p>
+          </ion-text>
+          <ion-text *ngIf="log.logSafe == 'SAFE'" color="success">
+              <p><ion-icon name="checkmark-circle-outline"></ion-icon> {{log.logSafe}}</p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
   </ion-list>
   
 
